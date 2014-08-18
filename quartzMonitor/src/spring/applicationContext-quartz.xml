@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+<beans>
+	<!-- spring下quartz的持久化存储 --><!-- 调度器-->
+    <bean name="quartzScheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="dataSource" ref ="dataSource" />       
+        <!-- 通过applicationContextSchedulerContextKey属性配置spring上下文 --> 
+        <property name="applicationContextSchedulerContextKey" value="applicationContextKey"/>
+        <property name="configLocation" value="classpath:quartz.properties"/>
+        
+        <property name="triggers">
+			<list>				  		 
+				<ref bean="trigger2"/>						 					   		  	
+			</list>
+		</property>		
+		
+    </bean>
+    
+    <!-- 也是调度器  调用某个目标对象的方法    通常情况下,你只需要调用特定对象上的一个方法即可实现任务调度。-->
+    <!-- MethodInvokingJobDetailFactoryBean类默认是并发执行的，
+    这时候如果不设置“concurrent”为false，很可能带来并发或者死锁的问题，而且几率较小，不容易复现，请大家使用的时候注意设置“concurrent”。 
+    这里使用默认情况，并发执行-->
+    <bean id="jobDetail2" class="frameworkx.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="simpleService1"/>
+        <property name="targetMethod" value="testMethod2"/><!-- 方法 -->
+		<property name="shouldRecover" value="true"/>      <!-- true 可以终止 恢复任务 -->
+    </bean>
+    
+    <!-- trigger触发器 --><!-- 还有常用CronTriggerBean -->
+    <bean id="trigger2" class="org.springframework.scheduling.quartz.SimpleTriggerBean">
+        <property name="jobDetail" ref="jobDetail2"/>  <!--这里定义定时任务的对象的位置-->  
+        <property name="startDelay" value="1"/>        <!--这里定义程序启后1ms后开始执行-->  
+        <property name="repeatCount" value="10"/>      <!-- 运行次数- -->
+        <property name="repeatInterval" value="1000"/> <!-- repeatInterval告诉触发器以怎样的频度运行这个工作,因此每隔1s被触发一次。 -->
+    </bean>
+    
+    <!-- JobDetailBean是Quartz的org.quartz.JobDetail的子类，它要求通过jobClass属性来设置一个Job对象。 -->
+    <!-- quartz 1.8以前的用法，以后的用法为 -->
+    <bean id="jobDetail" class="org.springframework.scheduling.quartz.JobDetailBean">
+        <property name="jobClass">
+            <value>
+                com.sundoctor.example.service.MyQuartzJobBean
+            </value>
+        </property>
+        <!-- jobDataAsMap属性接受一个java.util.Map，其中包含了需要设置给jobClass的各种属性 -->
+        <property name="jobDataAsMap">
+            <map>
+                <entry key="simpleService">
+                    <ref bean="simpleService"/>
+                </entry>
+            </map>
+        </property>
+    </bean>
+	 
+</beans>

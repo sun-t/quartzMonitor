@@ -1,0 +1,5 @@
+#Fri Sep 23 15:18:14 CST 2011
+eclipse.preferences.version=1
+encoding//WebContent/index.jsp=UTF-8
+encoding//src/com/sundoctor/example/service/MyQuartzJobBean.java=UTF-8
+encoding//src/com/sundoctor/quartz/service/SchedulerServiceImpl.java=UTF-8
