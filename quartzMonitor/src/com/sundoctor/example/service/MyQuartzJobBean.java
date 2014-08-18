@@ -23,7 +23,7 @@ public class MyQuartzJobBean extends QuartzJobBean {
 		String triggerName = trigger.getName();
 		String group = trigger.getGroup();
 		
-		//鏍规嵁Trigger缁勫埆璋冪敤涓嶅悓鐨勪笟鍔￠�杈戞柟娉�
+		
 		if (StringUtils.equals(group, Scheduler.DEFAULT_GROUP)) {
 			simpleService.testMethod(triggerName, group,map);
 		} else {

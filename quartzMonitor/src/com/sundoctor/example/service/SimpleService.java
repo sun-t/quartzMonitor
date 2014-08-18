@@ -15,14 +15,14 @@ public class SimpleService implements Serializable{
 
 	
 	public void testMethod(String triggerName, String group,JobDataMap map){
-		//这里执行定时调度业务
+		//杩欓噷鎵ц瀹氭椂璋冨害涓氬姟
 //		logger.info("AAAA:"+triggerName+"=="+group);
 		logger.info("AAAA:"+triggerName+"=="+group+"   "+map.getString("name"));
 		
 	}
 	
 	public void testMethod2( String triggerName,String group,JobDataMap map){
-		//这里执行定时调度业务
+		//杩欓噷鎵ц瀹氭椂璋冨害涓氬姟
 //		logger.info("BBBB:"+triggerName+"=="+group);
 		logger.info("BBBB:"+triggerName+"=="+group+"   "+map.getString("name"));
 	}

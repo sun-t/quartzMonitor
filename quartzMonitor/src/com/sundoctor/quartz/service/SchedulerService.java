@@ -8,211 +8,211 @@ import org.quartz.CronExpression;
 
 public interface SchedulerService {
 	/**
-	 * ¸ù¾İ Quartz Cron Expression µ÷ÊÔÈÎÎñ
-	 * @param cronExpression  Quartz Cron ±í´ïÊ½£¬Èç "0/10 * * ? * * *"µÈ
+	 * æ ¹æ® Quartz Cron Expression è°ƒè¯•ä»»åŠ¡
+	 * @param cronExpression  Quartz Cron è¡¨è¾¾å¼ï¼Œå¦‚ "0/10 * * ? * * *"ç­‰
 	 */
 	//void schedule(String cronExpression);
 	
 	/**
-	 * ¸ù¾İ Quartz Cron Expression µ÷ÊÔÈÎÎñ
-	 * @param name  Quartz CronTriggerÃû³Æ
-	 * @param cronExpression Quartz Cron ±í´ïÊ½£¬Èç "0/10 * * ? * * *"µÈ
+	 * æ ¹æ® Quartz Cron Expression è°ƒè¯•ä»»åŠ¡
+	 * @param name  Quartz CronTriggeråç§°
+	 * @param cronExpression Quartz Cron è¡¨è¾¾å¼ï¼Œå¦‚ "0/10 * * ? * * *"ç­‰
 	 */
 	//void schedule(String name,String cronExpression);
 	
 	/**
-	 * ¸ù¾İ Quartz Cron Expression µ÷ÊÔÈÎÎñ
-	 * @param name  Quartz CronTriggerÃû³Æ
-	 * @param cronExpression Quartz Cron ±í´ïÊ½£¬Èç "0/10 * * ? * * *"µÈ
+	 * æ ¹æ® Quartz Cron Expression è°ƒè¯•ä»»åŠ¡
+	 * @param name  Quartz CronTriggeråç§°
+	 * @param cronExpression Quartz Cron è¡¨è¾¾å¼ï¼Œå¦‚ "0/10 * * ? * * *"ç­‰
 	   * @param group Quartz CronExpression Group
 	 */
-	 //void schedule(String name, String cronExpression,String group);
+	// void schedule(String name, String cronExpression,String group);
 	
 	/**
-	 * ¸ù¾İ Quartz Cron Expression µ÷ÊÔÈÎÎñ
+	 * æ ¹æ® Quartz Cron Expression è°ƒè¯•ä»»åŠ¡
 	 * @param cronExpression Quartz CronExpression
 	 */
 	//void schedule(CronExpression cronExpression);
 	
 	/**
-	 * ¸ù¾İ Quartz Cron Expression µ÷ÊÔÈÎÎñ
-	 * @param name Quartz CronTriggerÃû³Æ
+	 * æ ¹æ® Quartz Cron Expression è°ƒè¯•ä»»åŠ¡
+	 * @param name Quartz CronTriggeråç§°
 	 * @param cronExpression Quartz CronExpression
 	 */
 	//void schedule(String name,CronExpression cronExpression);
 	
 	/**
-	 * ¸ù¾İ Quartz Cron Expression µ÷ÊÔÈÎÎñ
-	 * @param name Quartz CronTriggerÃû³Æ
+	 * æ ¹æ® Quartz Cron Expression è°ƒè¯•ä»»åŠ¡
+	 * @param name Quartz CronTriggeråç§°
 	 * @param cronExpression Quartz CronExpression
 	   * @param group Quartz CronExpression Group
 	 */
 	//void schedule(String name, CronExpression cronExpression,String group);
 	
 	/**
-	 * ÔÚstartTimeÊ±Ö´ĞĞµ÷ÊÔÒ»´Î
-	 * @param startTime µ÷¶È¿ªÊ¼Ê±¼ä
+	 * åœ¨startTimeæ—¶æ‰§è¡Œè°ƒè¯•ä¸€æ¬¡
+	 * @param startTime è°ƒåº¦å¼€å§‹æ—¶é—´
 	 */
 	void schedule(Date startTime);	
 	
 	/**
-	 * ÔÚstartTimeÊ±Ö´ĞĞµ÷ÊÔÒ»´Î
-	 * @param startTime µ÷¶È¿ªÊ¼Ê±¼ä
+	 * åœ¨startTimeæ—¶æ‰§è¡Œè°ƒè¯•ä¸€æ¬¡
+	 * @param startTime è°ƒåº¦å¼€å§‹æ—¶é—´
 	  * @param group Quartz SimpleTrigger Group
 	 */
 	void schedule(Date startTime,String group);
 	
 	/**
-	 * ÔÚstartTimeÊ±Ö´ĞĞµ÷ÊÔÒ»´Î
-	 * @param name Quartz SimpleTrigger Ãû³Æ
-	 * @param startTime µ÷¶È¿ªÊ¼Ê±¼ä
+	 * åœ¨startTimeæ—¶æ‰§è¡Œè°ƒè¯•ä¸€æ¬¡
+	 * @param name Quartz SimpleTrigger åç§°
+	 * @param startTime è°ƒåº¦å¼€å§‹æ—¶é—´
 	 */
 	void schedule(String name,Date startTime);
 	
 	/**
-	 * ÔÚstartTimeÊ±Ö´ĞĞµ÷ÊÔÒ»´Î
-	 * @param name Quartz SimpleTrigger Ãû³Æ
-	 * @param startTime µ÷¶È¿ªÊ¼Ê±¼ä
+	 * åœ¨startTimeæ—¶æ‰§è¡Œè°ƒè¯•ä¸€æ¬¡
+	 * @param name Quartz SimpleTrigger åç§°
+	 * @param startTime è°ƒåº¦å¼€å§‹æ—¶é—´
 	  * @param group Quartz SimpleTrigger Group
 	 */
 	void schedule(String name, Date startTime,String group);
 	
 	/**
-	 * ÔÚstartTimeÊ±Ö´ĞĞµ÷ÊÔ£¬endTime½áÊøÖ´ĞĞµ÷¶È
-	 * @param startTime µ÷¶È¿ªÊ¼Ê±¼ä
-	 * @param endTime µ÷¶È½áÊøÊ±¼ä
+	 * åœ¨startTimeæ—¶æ‰§è¡Œè°ƒè¯•ï¼ŒendTimeç»“æŸæ‰§è¡Œè°ƒåº¦
+	 * @param startTime è°ƒåº¦å¼€å§‹æ—¶é—´
+	 * @param endTime è°ƒåº¦ç»“æŸæ—¶é—´
 	 */
 	void schedule(Date startTime,Date endTime);	
 
 	/**
-	 * ÔÚstartTimeÊ±Ö´ĞĞµ÷ÊÔ£¬endTime½áÊøÖ´ĞĞµ÷¶È
-	 * @param startTime µ÷¶È¿ªÊ¼Ê±¼ä
-	 * @param endTime µ÷¶È½áÊøÊ±¼ä
+	 * åœ¨startTimeæ—¶æ‰§è¡Œè°ƒè¯•ï¼ŒendTimeç»“æŸæ‰§è¡Œè°ƒåº¦
+	 * @param startTime è°ƒåº¦å¼€å§‹æ—¶é—´
+	 * @param endTime è°ƒåº¦ç»“æŸæ—¶é—´
 	 * @param group Quartz SimpleTrigger Group
 	 */
 	void schedule(Date startTime, Date endTime,String group) ;
 	
 	/**
-	 * ÔÚstartTimeÊ±Ö´ĞĞµ÷ÊÔ£¬endTime½áÊøÖ´ĞĞµ÷¶È
-	 * @param name Quartz SimpleTrigger Ãû³Æ
-	 * @param startTime µ÷¶È¿ªÊ¼Ê±¼ä
-	 * @param endTime µ÷¶È½áÊøÊ±¼ä
+	 * åœ¨startTimeæ—¶æ‰§è¡Œè°ƒè¯•ï¼ŒendTimeç»“æŸæ‰§è¡Œè°ƒåº¦
+	 * @param name Quartz SimpleTrigger åç§°
+	 * @param startTime è°ƒåº¦å¼€å§‹æ—¶é—´
+	 * @param endTime è°ƒåº¦ç»“æŸæ—¶é—´
 	 */
 	void schedule(String name,Date startTime,Date endTime);
 	
 	/**
-	 * ÔÚstartTimeÊ±Ö´ĞĞµ÷ÊÔ£¬endTime½áÊøÖ´ĞĞµ÷¶È
-	 * @param name Quartz SimpleTrigger Ãû³Æ
-	 * @param startTime µ÷¶È¿ªÊ¼Ê±¼ä
-	 * @param endTime µ÷¶È½áÊøÊ±¼ä
+	 * åœ¨startTimeæ—¶æ‰§è¡Œè°ƒè¯•ï¼ŒendTimeç»“æŸæ‰§è¡Œè°ƒåº¦
+	 * @param name Quartz SimpleTrigger åç§°
+	 * @param startTime è°ƒåº¦å¼€å§‹æ—¶é—´
+	 * @param endTime è°ƒåº¦ç»“æŸæ—¶é—´
 	 * @param group Quartz SimpleTrigger Group
 	 */
 	void schedule(String name, Date startTime, Date endTime,String group) ;
 	
 	/**
-	 * ÔÚstartTimeÊ±Ö´ĞĞµ÷ÊÔ£¬endTime½áÊøÖ´ĞĞµ÷¶È£¬ÖØ¸´Ö´ĞĞrepeatCount´Î
-	 * @param startTime µ÷¶È¿ªÊ¼Ê±¼ä
-	 * @param endTime µ÷¶È½áÊøÊ±¼ä
-	 * @param repeatCount ÖØ¸´Ö´ĞĞ´ÎÊı
+	 * åœ¨startTimeæ—¶æ‰§è¡Œè°ƒè¯•ï¼ŒendTimeç»“æŸæ‰§è¡Œè°ƒåº¦ï¼Œé‡å¤æ‰§è¡ŒrepeatCountæ¬¡
+	 * @param startTime è°ƒåº¦å¼€å§‹æ—¶é—´
+	 * @param endTime è°ƒåº¦ç»“æŸæ—¶é—´
+	 * @param repeatCount é‡å¤æ‰§è¡Œæ¬¡æ•°
 	 */
 	void schedule(Date startTime,Date endTime,int repeatCount);	
 	
 	/**
-	 * ÔÚstartTimeÊ±Ö´ĞĞµ÷ÊÔ£¬endTime½áÊøÖ´ĞĞµ÷¶È£¬ÖØ¸´Ö´ĞĞrepeatCount´Î
-	 * @param startTime µ÷¶È¿ªÊ¼Ê±¼ä
-	 * @param endTime µ÷¶È½áÊøÊ±¼ä
-	 * @param repeatCount ÖØ¸´Ö´ĞĞ´ÎÊı
+	 * åœ¨startTimeæ—¶æ‰§è¡Œè°ƒè¯•ï¼ŒendTimeç»“æŸæ‰§è¡Œè°ƒåº¦ï¼Œé‡å¤æ‰§è¡ŒrepeatCountæ¬¡
+	 * @param startTime è°ƒåº¦å¼€å§‹æ—¶é—´
+	 * @param endTime è°ƒåº¦ç»“æŸæ—¶é—´
+	 * @param repeatCount é‡å¤æ‰§è¡Œæ¬¡æ•°
 	 * @param group Quartz SimpleTrigger Group
 	 */
 	void schedule(Date startTime, Date endTime, int repeatCount,String group);
 	
 	/**
-	 * ÔÚstartTimeÊ±Ö´ĞĞµ÷ÊÔ£¬endTime½áÊøÖ´ĞĞµ÷¶È£¬ÖØ¸´Ö´ĞĞrepeatCount´Î
-	 * @param name Quartz SimpleTrigger Ãû³Æ
-	 * @param startTime µ÷¶È¿ªÊ¼Ê±¼ä
-	 * @param endTime µ÷¶È½áÊøÊ±¼ä
-	 * @param repeatCount ÖØ¸´Ö´ĞĞ´ÎÊı
+	 * åœ¨startTimeæ—¶æ‰§è¡Œè°ƒè¯•ï¼ŒendTimeç»“æŸæ‰§è¡Œè°ƒåº¦ï¼Œé‡å¤æ‰§è¡ŒrepeatCountæ¬¡
+	 * @param name Quartz SimpleTrigger åç§°
+	 * @param startTime è°ƒåº¦å¼€å§‹æ—¶é—´
+	 * @param endTime è°ƒåº¦ç»“æŸæ—¶é—´
+	 * @param repeatCount é‡å¤æ‰§è¡Œæ¬¡æ•°
 	 */
 	void schedule(String name,Date startTime,Date endTime,int repeatCount);
 	
 	/**
-	 * ÔÚstartTimeÊ±Ö´ĞĞµ÷ÊÔ£¬endTime½áÊøÖ´ĞĞµ÷¶È£¬ÖØ¸´Ö´ĞĞrepeatCount´Î
-	 * @param name Quartz SimpleTrigger Ãû³Æ
-	 * @param startTime µ÷¶È¿ªÊ¼Ê±¼ä
-	 * @param endTime µ÷¶È½áÊøÊ±¼ä
-	 * @param repeatCount ÖØ¸´Ö´ĞĞ´ÎÊı
+	 * åœ¨startTimeæ—¶æ‰§è¡Œè°ƒè¯•ï¼ŒendTimeç»“æŸæ‰§è¡Œè°ƒåº¦ï¼Œé‡å¤æ‰§è¡ŒrepeatCountæ¬¡
+	 * @param name Quartz SimpleTrigger åç§°
+	 * @param startTime è°ƒåº¦å¼€å§‹æ—¶é—´
+	 * @param endTime è°ƒåº¦ç»“æŸæ—¶é—´
+	 * @param repeatCount é‡å¤æ‰§è¡Œæ¬¡æ•°
 	 * @param group Quartz SimpleTrigger Group
 	 */
 	void schedule(String name, Date startTime, Date endTime, int repeatCount,String group);
 	
 	/**
-	 * ÔÚstartTimeÊ±Ö´ĞĞµ÷ÊÔ£¬endTime½áÊøÖ´ĞĞµ÷¶È£¬ÖØ¸´Ö´ĞĞrepeatCount´Î£¬Ã¿¸ôrepeatIntervalÃëÖ´ĞĞÒ»´Î
-	 * @param startTime µ÷¶È¿ªÊ¼Ê±¼ä
-	 * @param endTime µ÷¶È½áÊøÊ±¼ä
-	 * @param repeatCount ÖØ¸´Ö´ĞĞ´ÎÊı
-	 * @param repeatInterval Ö´ĞĞÊ±¼ä¸ô¼ä
+	 * åœ¨startTimeæ—¶æ‰§è¡Œè°ƒè¯•ï¼ŒendTimeç»“æŸæ‰§è¡Œè°ƒåº¦ï¼Œé‡å¤æ‰§è¡ŒrepeatCountæ¬¡ï¼Œæ¯éš”repeatIntervalç§’æ‰§è¡Œä¸€æ¬¡
+	 * @param startTime è°ƒåº¦å¼€å§‹æ—¶é—´
+	 * @param endTime è°ƒåº¦ç»“æŸæ—¶é—´
+	 * @param repeatCount é‡å¤æ‰§è¡Œæ¬¡æ•°
+	 * @param repeatInterval æ‰§è¡Œæ—¶é—´éš”é—´
 	 */
 	void schedule(Date startTime,Date endTime,int repeatCount,long repeatInterval) ;
 	
 	/**
-	 * ÔÚstartTimeÊ±Ö´ĞĞµ÷ÊÔ£¬endTime½áÊøÖ´ĞĞµ÷¶È£¬ÖØ¸´Ö´ĞĞrepeatCount´Î£¬Ã¿¸ôrepeatIntervalÃëÖ´ĞĞÒ»´Î
-	 * @param startTime µ÷¶È¿ªÊ¼Ê±¼ä
-	 * @param endTime µ÷¶È½áÊøÊ±¼ä
-	 * @param repeatCount ÖØ¸´Ö´ĞĞ´ÎÊı
-	 * @param repeatInterval Ö´ĞĞÊ±¼ä¸ô¼ä
+	 * åœ¨startTimeæ—¶æ‰§è¡Œè°ƒè¯•ï¼ŒendTimeç»“æŸæ‰§è¡Œè°ƒåº¦ï¼Œé‡å¤æ‰§è¡ŒrepeatCountæ¬¡ï¼Œæ¯éš”repeatIntervalç§’æ‰§è¡Œä¸€æ¬¡
+	 * @param startTime è°ƒåº¦å¼€å§‹æ—¶é—´
+	 * @param endTime è°ƒåº¦ç»“æŸæ—¶é—´
+	 * @param repeatCount é‡å¤æ‰§è¡Œæ¬¡æ•°
+	 * @param repeatInterval æ‰§è¡Œæ—¶é—´éš”é—´
 	 *  @param group Quartz SimpleTrigger Group
 	 */
 	void schedule(Date startTime, Date endTime, int repeatCount, long repeatInterval,String group);
 	
 	/**
-	 * ÔÚstartTimeÊ±Ö´ĞĞµ÷ÊÔ£¬endTime½áÊøÖ´ĞĞµ÷¶È£¬ÖØ¸´Ö´ĞĞrepeatCount´Î£¬Ã¿¸ôrepeatIntervalÃëÖ´ĞĞÒ»´Î
-	 * @param name Quartz SimpleTrigger Ãû³Æ
-	 * @param startTime µ÷¶È¿ªÊ¼Ê±¼ä
-	 * @param endTime µ÷¶È½áÊøÊ±¼ä
-	 * @param repeatCount ÖØ¸´Ö´ĞĞ´ÎÊı
-	 * @param repeatInterval Ö´ĞĞÊ±¼ä¸ô¼ä
+	 * åœ¨startTimeæ—¶æ‰§è¡Œè°ƒè¯•ï¼ŒendTimeç»“æŸæ‰§è¡Œè°ƒåº¦ï¼Œé‡å¤æ‰§è¡ŒrepeatCountæ¬¡ï¼Œæ¯éš”repeatIntervalç§’æ‰§è¡Œä¸€æ¬¡
+	 * @param name Quartz SimpleTrigger åç§°
+	 * @param startTime è°ƒåº¦å¼€å§‹æ—¶é—´
+	 * @param endTime è°ƒåº¦ç»“æŸæ—¶é—´
+	 * @param repeatCount é‡å¤æ‰§è¡Œæ¬¡æ•°
+	 * @param repeatInterval æ‰§è¡Œæ—¶é—´éš”é—´
 	 */
 	void schedule(String name,Date startTime,Date endTime,int repeatCount,long repeatInterval);
 	
 	/**
-	 * ÔÚstartTimeÊ±Ö´ĞĞµ÷ÊÔ£¬endTime½áÊøÖ´ĞĞµ÷¶È£¬ÖØ¸´Ö´ĞĞrepeatCount´Î£¬Ã¿¸ôrepeatIntervalÃëÖ´ĞĞÒ»´Î
-	 * @param name Quartz SimpleTrigger Ãû³Æ
-	 * @param startTime µ÷¶È¿ªÊ¼Ê±¼ä
-	 * @param endTime µ÷¶È½áÊøÊ±¼ä
-	 * @param repeatCount ÖØ¸´Ö´ĞĞ´ÎÊı
-	 * @param repeatInterval Ö´ĞĞÊ±¼ä¸ô¼ä
+	 * åœ¨startTimeæ—¶æ‰§è¡Œè°ƒè¯•ï¼ŒendTimeç»“æŸæ‰§è¡Œè°ƒåº¦ï¼Œé‡å¤æ‰§è¡ŒrepeatCountæ¬¡ï¼Œæ¯éš”repeatIntervalç§’æ‰§è¡Œä¸€æ¬¡
+	 * @param name Quartz SimpleTrigger åç§°
+	 * @param startTime è°ƒåº¦å¼€å§‹æ—¶é—´
+	 * @param endTime è°ƒåº¦ç»“æŸæ—¶é—´
+	 * @param repeatCount é‡å¤æ‰§è¡Œæ¬¡æ•°
+	 * @param repeatInterval æ‰§è¡Œæ—¶é—´éš”é—´
 	 *  @param group Quartz SimpleTrigger Group
 	 */
 	void schedule(String name ,Date startTime, Date endTime, int repeatCount, long repeatInterval, String group);
 	
 	/**
-	 * Trigger ²ÎÊı,ÒÔcom.sundoctor.example.Constant³£Á¿Îª¼ü·â×°µÄMap
+	 * Trigger å‚æ•°,ä»¥com.sundoctor.example.Constantå¸¸é‡ä¸ºé”®å°è£…çš„Map
 	 * @param map
 	 */
 	void schedule(Map<String,String> map) ;
 	
 	/**
-	 * È¡µÃËùÓĞµ÷¶ÈTriggers
+	 * å–å¾—æ‰€æœ‰è°ƒåº¦Triggers
 	 * @return
 	 */
 	List<Map<String, Object>> getQrtzTriggers();
 	
 	/**
-	 * ¸ù¾İÃû³ÆºÍ×é±ğÔİÍ£Tigger
+	 * æ ¹æ®åç§°å’Œç»„åˆ«æš‚åœTigger
 	 * @param triggerName
 	 * @param group
 	 */
 	void pauseTrigger(String triggerName,String group);
 	
 	/**
-	 * »Ö¸´Trigger
+	 * æ¢å¤Trigger
 	 * @param triggerName
 	 * @param group
 	 */
 	void resumeTrigger(String triggerName,String group);
 	
 	/**
-	 * É¾³ıTrigger
+	 * åˆ é™¤Trigger
 	 * @param triggerName
 	 * @param group
 	 */

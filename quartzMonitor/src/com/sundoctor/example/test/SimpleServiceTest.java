@@ -28,28 +28,28 @@ public class SimpleServiceTest {
 	
 	@Test
 	public void test(){
-		//Ö´ĞĞÒµÎñÂß¼­...
+		//æ‰§è¡Œä¸šåŠ¡é€»è¾‘...
 		
-		//ÉèÖÃ¸ß¶ÈÈÎÎñ
-		//Ã¿10ÃëÖĞÖ´ĞĞµ÷ÊÔÒ»´Î
+		//è®¾ç½®é«˜åº¦ä»»åŠ¡
+		//æ¯10ç§’ä¸­æ‰§è¡Œè°ƒè¯•ä¸€æ¬¡
 		//schedulerService.schedule("0/10 * * ? * * *"); 
 		
 		Date startTime = this.parse("2009-06-01 21:50:00");
 		Date endTime =  this.parse("2009-06-01 21:55:00");
         
-		//2009-06-01 21:50:00¿ªÊ¼Ö´ĞĞµ÷¶È
+		//2009-06-01 21:50:00å¼€å§‹æ‰§è¡Œè°ƒåº¦
 		schedulerService.schedule(startTime);
 
-		//2009-06-01 21:50:00¿ªÊ¼Ö´ĞĞµ÷¶È£¬2009-06-01 21:55:00½áÊøÖ´ĞĞµ÷ÊÔ
+		//2009-06-01 21:50:00å¼€å§‹æ‰§è¡Œè°ƒåº¦ï¼Œ2009-06-01 21:55:00ç»“æŸæ‰§è¡Œè°ƒè¯•
 		schedulerService.schedule(startTime,endTime);
 		
-		//2009-06-01 21:50:00¿ªÊ¼Ö´ĞĞµ÷¶È£¬Ö´ĞĞ5´Î½áÊø
+		//2009-06-01 21:50:00å¼€å§‹æ‰§è¡Œè°ƒåº¦ï¼Œæ‰§è¡Œ5æ¬¡ç»“æŸ
 		schedulerService.schedule(startTime,null,5);
 
-		//2009-06-01 21:50:00¿ªÊ¼Ö´ĞĞµ÷¶È£¬Ã¿¸ô20ÃëÖ´ĞĞÒ»´Î£¬Ö´ĞĞ5´Î½áÊø
+		//2009-06-01 21:50:00å¼€å§‹æ‰§è¡Œè°ƒåº¦ï¼Œæ¯éš”20ç§’æ‰§è¡Œä¸€æ¬¡ï¼Œæ‰§è¡Œ5æ¬¡ç»“æŸ
 		schedulerService.schedule(startTime,null,5,20);
 		
-		//µÈµÈ£¬²é¿´com.sundoctor.quartz.service.SchedulerService
+		//ç­‰ç­‰ï¼ŒæŸ¥çœ‹com.sundoctor.quartz.service.SchedulerService
 	}
 	
 	private Date parse(String dateStr){

@@ -33,11 +33,12 @@ public class SchedulerServiceImpl implements SchedulerService {
 	private QuartzDao quartzDao;
 	
 	private static final Logger logger = LoggerFactory.getLogger(SchedulerServiceImpl.class);
-
+	
+	//Autowired spring可以自动帮你把bean里面引用的对象的setter/getter方法省略，它会自动帮你set/get
 	@Autowired
 	public void setJobDetail(@Qualifier("jobDetail") JobDetail jobDetail) {
 		this.jobDetail = jobDetail;
-	}
+	}//Qualifier指定注入 Bean 的名称
 
 	@Autowired
 	public void setScheduler(@Qualifier("quartzScheduler") Scheduler scheduler) {
@@ -185,7 +186,7 @@ public class SchedulerServiceImpl implements SchedulerService {
 		if (name == null || name.trim().equals("")) {
 			name = UUID.randomUUID().toString();
 		}else{
-			//鍦ㄥ悕绉板悗娣诲姞UUID锛屼繚璇佸悕绉扮殑鍞竴鎬�
+			
 			name +="&"+UUID.randomUUID().toString();
 		}
 
@@ -205,50 +206,50 @@ public class SchedulerServiceImpl implements SchedulerService {
 	public void schedule(Map<String,String> map) {
 		
 		String temp = null;
-		//瀹炰緥鍖朣impleTrigger
+		//simpleTrigger
 		SimpleTrigger SimpleTrigger = new SimpleTrigger();
 		
-		//杩欎簺鍊肩殑璁剧疆涔熷彲浠ヤ粠澶栭潰浼犲叆锛岃繖閲岄噰鐢ㄩ粯鏀惧�		
+			
 		SimpleTrigger.setJobName(jobDetail.getName());		
 		SimpleTrigger.setJobGroup(Scheduler.DEFAULT_GROUP);		
 		SimpleTrigger.setRepeatInterval(1000L);
 		
-		//璁剧疆鍚嶇О
+		
 		temp = map.get(Constant.TRIGGERNAME);		
 		if (StringUtils.isEmpty(StringUtils.trim(temp)) ){
 			temp = UUID.randomUUID().toString();
 		}else{
-			//鍦ㄥ悕绉板悗娣诲姞UUID锛屼繚璇佸悕绉扮殑鍞竴鎬�
+			
 			temp +="&"+UUID.randomUUID().toString();
 		}
 		SimpleTrigger.setName(temp);
 		
-		//璁剧疆Trigger鍒嗙粍
+		
 		temp = map.get(Constant.TRIGGERGROUP);
 		if(StringUtils.isEmpty(temp)){
 			temp = Scheduler.DEFAULT_GROUP;
 		}
 		SimpleTrigger.setGroup(temp);
 		
-		//璁剧疆寮�鏃堕棿
+		
 		temp = map.get(Constant.STARTTIME);
 		if(StringUtils.isNotEmpty(temp)){
 			SimpleTrigger.setStartTime(this.parseDate(temp));
 		}
 		
-		//璁剧疆缁撴潫鏃堕棿
+		
 		temp = map.get(Constant.ENDTIME);
 		if(StringUtils.isNotEmpty(temp)){
 			SimpleTrigger.setEndTime(this.parseDate(temp));
 		}
 		
-		//璁剧疆鎵ц娆℃暟
+		
 		temp = map.get(Constant.REPEATCOUNT);
 		if(StringUtils.isNotEmpty(temp) && NumberUtils.toInt(temp) > 0){
 			SimpleTrigger.setRepeatCount(NumberUtils.toInt(temp));
 		}
 		
-		//璁剧疆鎵ц鏃堕棿闂撮殧
+		
 		temp = map.get(Constant.REPEATINTERVEL);
 		if(StringUtils.isNotEmpty(temp) && NumberUtils.toLong(temp) > 0){
 			SimpleTrigger.setRepeatInterval(NumberUtils.toLong(temp)*1000);
@@ -272,7 +273,7 @@ public class SchedulerServiceImpl implements SchedulerService {
 	@Override
 	public void pauseTrigger(String triggerName,String group){		
 		try {
-			scheduler.pauseTrigger(triggerName, group);//鍋滄瑙﹀彂鍣�
+			scheduler.pauseTrigger(triggerName, group);
 		} catch (SchedulerException e) {
 			throw new RuntimeException(e);
 		}
@@ -283,7 +284,7 @@ public class SchedulerServiceImpl implements SchedulerService {
 		try {
 			//Trigger trigger = scheduler.getTrigger(triggerName, group);
 			
-			scheduler.resumeTrigger(triggerName, group);//閲嶅惎瑙﹀彂鍣�
+			scheduler.resumeTrigger(triggerName, group);
 		} catch (SchedulerException e) {
 			throw new RuntimeException(e);
 		}
@@ -292,8 +293,8 @@ public class SchedulerServiceImpl implements SchedulerService {
 	@Override
 	public boolean removeTrigdger(String triggerName,String group){		
 		try {
-			scheduler.pauseTrigger(triggerName, group);//鍋滄瑙﹀彂鍣�
-			return scheduler.unscheduleJob(triggerName, group);//绉婚櫎瑙﹀彂鍣�
+			scheduler.pauseTrigger(triggerName, group);
+			return scheduler.unscheduleJob(triggerName, group);
 		} catch (SchedulerException e) {
 			throw new RuntimeException(e);
 		}
@@ -303,7 +304,7 @@ public class SchedulerServiceImpl implements SchedulerService {
 		try {
 			return DateUtils.parseDate(time, new String[]{"yyyy-MM-dd HH:mm"});
 		} catch (ParseException e) {			
-			logger.error("鏃ユ湡鏍煎紡閿欒{}锛屾纭牸寮忎负锛歽yyy-MM-dd HH:mm",time);
+			logger.error("yyy-MM-dd HH:mm",time);
 			throw new RuntimeException(e);
 		}
 	}

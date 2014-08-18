@@ -13,8 +13,8 @@ public class Constant {
 	
 	public static final Map<String,String> status = new HashMap<String,String>();
 	static{
-		status.put("ACQUIRED", "ÔËĞĞÖĞ");
-		status.put("PAUSED", "ÔİÍ£ÖĞ");
-		status.put("WAITING", "µÈ´ıÖĞ");		
+		status.put("ACQUIRED", "è¿è¡Œä¸­");
+		status.put("PAUSED", "æš‚åœä¸­");
+		status.put("WAITING", "ç­‰å¾…ä¸­");		
 	}
 }

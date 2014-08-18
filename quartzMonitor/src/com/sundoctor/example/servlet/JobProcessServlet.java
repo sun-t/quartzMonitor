@@ -54,11 +54,12 @@ public class JobProcessServlet extends HttpServlet {
 
 		if (jobtype.equals("0") && action.equals("add")) {
 			this.addSimpleTrigger(request, response);
-		//} else if (jobtype.equals("1") && action.equals("add")) {
-			//this.addCronTriggerByExpression(request, response);
-		//} else if (jobtype.equals("2") && action.equals("add")) {
+		}// else if (jobtype.equals("1") && action.equals("add")) {
+		//	this.addCronTriggerByExpression(request, response);
+		//}else if (jobtype.equals("2") && action.equals("add")) {
 		//	this.addCronTriggerBy(request, response);
-		} else if (jobtype.equals("100") && action.equals("query")) {
+		//}
+		else if (jobtype.equals("100") && action.equals("query")) {
 			this.getQrtzTriggers(request, response);
 		} else if (jobtype.equals("200") && action.equals("pause")) {
 			this.pauseTrigger(request, response);
@@ -70,20 +71,20 @@ public class JobProcessServlet extends HttpServlet {
 	}
 
 	/**
-	 * Ìí¼ÓSimple Trigger
+	 * æ·»åŠ Simple Trigger
 	 * 
 	 * @param request
 	 * @param response
 	 */
 	private void addSimpleTrigger(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-		// »ñÈ¡½çÃæÒÔp_²ÎÊı
+		// è·å–ç•Œé¢ä»¥p_å‚æ•°
 		Map<String, String> filterMap = WebUtils.getParametersStartingWith(request, "p_");
 		if (StringUtils.isEmpty(filterMap.get(Constant.STARTTIME))) {
 			response.getWriter().println(1);
 		}
 
-		// Ìí¼ÓÈÎÎñµ÷ÊÔ
+		// æ·»åŠ ä»»åŠ¡è°ƒè¯•
 		schedulerService.schedule(filterMap);
 
 		// response.setContentType("text/xml;charset=utf-8");
@@ -92,7 +93,7 @@ public class JobProcessServlet extends HttpServlet {
 	}
 
 	/**
-	 * ¸ù¾İCron±í´ïÊ½Ìí¼ÓCron Trigger£¬
+	 * æ ¹æ®Cronè¡¨è¾¾å¼æ·»åŠ Cron Triggerï¼Œ
 	 * 
 	 * @param request
 	 * @param response
@@ -100,14 +101,14 @@ public class JobProcessServlet extends HttpServlet {
 	/*
 	private void addCronTriggerByExpression(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-		// »ñÈ¡½çÃæÒÔ²ÎÊı
+		// è·å–ç•Œé¢ä»¥å‚æ•°
 		String triggerName = request.getParameter("triggerName");
 		String cronExpression = request.getParameter("cronExpression");
 		if (StringUtils.isEmpty(triggerName) || StringUtils.isEmpty(cronExpression)) {
 			response.getWriter().println(1);
 		}
 
-		// Ìí¼ÓÈÎÎñµ÷ÊÔ
+		// æ·»åŠ ä»»åŠ¡è°ƒè¯•
 		schedulerService.schedule(triggerName, cronExpression);
 
 		// response.setContentType("text/xml;charset=utf-8");
@@ -116,7 +117,7 @@ public class JobProcessServlet extends HttpServlet {
 	}*/
 
 	/**
-	 * ¸ù¾İÌí¼ÓCron Trigger£¬
+	 * æ ¹æ®æ·»åŠ Cron Triggerï¼Œ
 	 * 
 	 * @param request
 	 * @param response
@@ -124,7 +125,7 @@ public class JobProcessServlet extends HttpServlet {
 	/*
 	private void addCronTriggerBy(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-		// »ñÈ¡½çÃæÒÔ²ÎÊı
+		// è·å–ç•Œé¢ä»¥å‚æ•°
 		String triggerName = request.getParameter("triggerName");
 		String val = request.getParameter("val");
 		String selType = request.getParameter("selType");
@@ -134,14 +135,14 @@ public class JobProcessServlet extends HttpServlet {
 
 		String expression = null;
 		if (StringUtils.equals(selType, "second")) {
-			// Ã¿¶àÃëÖ´ĞĞÒ»´Î
+			// æ¯å¤šç§’æ‰§è¡Œä¸€æ¬¡
 			expression = "0/" + val + " * * ? * * *";
 		} else if (StringUtils.equals(selType, "minute")) {
-			// Ã¿¶àÉÙ·ÖÖ´ĞĞÒ»´Î
+			// æ¯å¤šå°‘åˆ†æ‰§è¡Œä¸€æ¬¡
 			expression = "0 0/" + val + " * ? * * *";
 		}
 
-		// Ìí¼ÓÈÎÎñµ÷ÊÔ
+		// æ·»åŠ ä»»åŠ¡è°ƒè¯•
 		schedulerService.schedule(triggerName, expression);
 
 		// response.setContentType("text/xml;charset=utf-8");
@@ -150,7 +151,7 @@ public class JobProcessServlet extends HttpServlet {
 	}*/
 
 	/**
-	 * È¡µÃËùÓĞTrigger
+	 * å–å¾—æ‰€æœ‰Trigger
 	 * 
 	 * @param request
 	 * @param response
@@ -164,7 +165,7 @@ public class JobProcessServlet extends HttpServlet {
 	}
 
 	/**
-	 * ¸ù¾İÃû³ÆºÍ×é±ğÔİÍ£Tigger
+	 * æ ¹æ®åç§°å’Œç»„åˆ«æš‚åœTigger
 	 * 
 	 * @param request
 	 * @param response
@@ -180,7 +181,7 @@ public class JobProcessServlet extends HttpServlet {
 	}
 
 	/**
-	 * ¸ù¾İÃû³ÆºÍ×é±ğÔİÍ£Tigger
+	 * æ ¹æ®åç§°å’Œç»„åˆ«æš‚åœTigger
 	 * 
 	 * @param request
 	 * @param response
@@ -196,7 +197,7 @@ public class JobProcessServlet extends HttpServlet {
 	}
 
 	/**
-	 * ¸ù¾İÃû³ÆºÍ×é±ğÔİÍ£Tigger
+	 * æ ¹æ®åç§°å’Œç»„åˆ«æš‚åœTigger
 	 * 
 	 * @param request
 	 * @param response
